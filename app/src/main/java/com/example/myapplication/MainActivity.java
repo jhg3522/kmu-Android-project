@@ -1,22 +1,25 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private  ListView listView;
 
     @Override
-    //Activity가 생성될 때 자동으로 호출.
-    //화면 전환시에도 자동 호출.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //System.out.println("onCreate 메서드 호출");\
-        Log.d("test","onCreate call");
+        listView= (ListView) findViewById(R.id.main_ListView);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
+        listView.setAdapter(adapter);
     }
+}
+
+/*
 
     @Override
     //onCreate 메서드 호출 이후에 자동 호출됨.
@@ -62,5 +65,4 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d("test","onDestroy 호출");
-    }
-}
+    }*/
